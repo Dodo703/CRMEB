@@ -10,3 +10,14 @@ remarks.txt
 *.jpg
 *.png
 crmeb/public/uploads/
+crmeb/.constant
+.gitignore
+.gitignore
+.gitignore
+crmeb/.constant
+crmeb/.env
+crmeb/.env
+crmeb/public/h5/
+crmeb/public/favicon.ico
+crmeb/public/index.html
+crmeb/public/live-logo.gif

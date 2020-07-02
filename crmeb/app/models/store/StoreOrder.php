@@ -51,7 +51,7 @@ class StoreOrder extends BaseModel
 
     protected $insert = ['add_time'];
 
-    protected static $payType = ['weixin' => '微信支付', 'yue' => '余额支付', 'offline' => '线下支付'];
+    protected static $payType = ['weixin' => '微信支付', 'yue' => '余额支付', 'offline' => '线下支付','cod'=>'货到付款'];
 
     protected static $deliveryType = ['send' => '商家配送', 'express' => '快递配送'];
 

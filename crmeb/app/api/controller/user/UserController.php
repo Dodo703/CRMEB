@@ -192,7 +192,6 @@ class UserController
     public function address_edit(Request $request)
     {
         $addressInfo = UtilService::postMore([
-            ['address',[]],
             ['is_default',false],
             ['real_name',''],
             ['post_code',''],
@@ -200,15 +199,8 @@ class UserController
             ['detail',''],
             ['id',0]
         ], $request);
-        if(!isset($addressInfo['address']['province'])) return app('json')->fail('收货地址格式错误!');
-        if(!isset($addressInfo['address']['city'])) return app('json')->fail('收货地址格式错误!');
-        if(!isset($addressInfo['address']['district'])) return app('json')->fail('收货地址格式错误!');
-        $addressInfo['province'] = $addressInfo['address']['province'];
-        $addressInfo['city'] = $addressInfo['address']['city'];
-        $addressInfo['district'] = $addressInfo['address']['district'];
         $addressInfo['is_default'] = (int)$addressInfo['is_default'] == true ? 1 : 0;
         $addressInfo['uid'] = $request->uid();
-        unset($addressInfo['address']);
         try {
             validate(AddressValidate::class)->check($addressInfo);
         } catch (ValidateException $e) {
