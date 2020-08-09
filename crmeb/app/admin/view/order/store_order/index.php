@@ -164,6 +164,9 @@
                                     <i class="fa fa-edit"></i> 修改订单
                                 </a>
                             </li>
+                            {{#if (d.paid == 0) { }}
+                            <li><a href="#" lay-event="paid_status"><i class="fa fa-edit"></i>改成已支付</a></li>
+                            {{# }; }}
                             <li>
                                 <a lay-event='marke' href="javascript:void(0);" >
                                     <i class="fa fa-paste"></i> 订单备注
@@ -387,6 +390,31 @@
     });
     layList.tool(function (event,data,obj) {
         switch (event) {
+            case 'paid_status':
+                var url = layList.U({c:'order.store_order', a:'mark_as_paid'});
+                id = data.id;
+                remark = data.remark;
+                $eb.$alert('textarea', {title:'请确认要改成已支付，并填写备注', value: remark}, function(result){
+                    if (!result) {
+                        $eb.$swal('error','请输入要备注的内容12');
+                        return;
+                    }
+                    $.ajax({
+                        url: url,
+                        data: 'remark='+result+'&id='+id,
+                        type:'post',
+                        dataType:'json',
+                        success: function(res) {
+                            if (res.code == 200) {
+                                $eb.$swal('success', res.msg);
+                            } else {
+                                $eb.$swal('error', res.msg);
+                            }
+                        }
+                    });
+
+                });
+                break;
             case 'order_paid':
                 var url =layList.U({c:'order.store_order',a:'offline',p:{id:data.id}});
                 $eb.$swal('delete',function(){

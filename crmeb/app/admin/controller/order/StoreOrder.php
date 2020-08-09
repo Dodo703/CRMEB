@@ -397,6 +397,8 @@ class StoreOrder extends AuthController
         StoreOrderStatus::setStatus($id,'delivery_goods','已发货 快递公司：'.$data['delivery_name'].' 快递单号：'.$data['delivery_id']);
         return Json::successful('修改成功!');
     }
+
+
     /**
      * 修改状态为已收货
      * @param $id
@@ -726,6 +728,18 @@ class StoreOrder extends AuthController
         StoreOrderStatus::setStatus($id,'integral_back','商品退积分：'.$data['back_integral']);
         return Json::successful('退积分成功!');
     }
+
+    public function mark_as_paid() {
+        $data = Util::postMore(['id','remark']);
+        if(!$data['id']) return Json::fail('参数错误!');
+        if($data['remark'] == '')  return Json::fail('请输入要备注的内容!');
+        $id = $data['id'];
+        $data['paid'] = 1;//
+        unset($data['id']);
+        StoreOrderModel::edit($data,$id);
+        return Json::successful('支付状态成功!');
+    }
+
     public function remark(){
         $data = Util::postMore(['id','remark']);
         if(!$data['id']) return Json::fail('参数错误!');
