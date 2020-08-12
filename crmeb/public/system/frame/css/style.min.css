@@ -1367,7 +1367,7 @@ body.skin-3{background:#3e2c42}
 .btn-default{background-color:#79c7e4;border-color:#79c7e4}
 .btn-default.btn-outline{background-color:#fff;border-color:#c2c2c2}
 .login-group{margin-top: 30vh;background-color: #00111C;padding: 0 20px 20px;color: #111123;opacity: 0.8;border-radius: 7px;box-shadow: 0 0 10px #3FBEEB;  border: 1px solid #74B5C9;  }
-.login-logo{font-family:"Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;color:#fff;overflow:hidden;margin-top:1vh}
+.login-logo{margin: 20px auto; font-family:"Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;color:#fff;overflow:hidden;}
 .login-logo img{width:90px}
 .login-logo p{color:#fff;font-weight:300;margin:0}
 .login-bg{background-image:url(../../images/bg-logo.jpg)}

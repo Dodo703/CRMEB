@@ -93,7 +93,7 @@
                                 <Form-Item>
                                     <Row>
                                         <i-Col span="13">
-                                            <span>短信签名：</span><i-Input placeholder="短信签名 例如:CRMEB" v-model="form.sign" style="width: 80%"></i-Input>
+                                            <span>短信签名：</span><i-Input placeholder="短信签名 例如:LOVE" v-model="form.sign" style="width: 80%"></i-Input>
                                         </i-Col>
                                     </Row>
                                 </Form-Item>
