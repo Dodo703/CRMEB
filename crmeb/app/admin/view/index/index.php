@@ -260,7 +260,7 @@
 <script src="{__FRAME_PATH}js/plugins/pace/pace.min.js"></script>
 {include file="public/style"}
 <script>
-    window.newOrderAudioLink='{$new_order_audio_link}';
+    window.newOrderAudioLink= '{$new_order_audio_link}';
     window.workermanPort = '{$workermanPort}';
 </script>
 <script src="{__FRAME_PATH}js/index.js"></script>
